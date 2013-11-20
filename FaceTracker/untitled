@@ -1,0 +1,624 @@
+/**
+ * @file Face Detector
+ * @author Ana
+ * @date: Who cares? As long as it is before Wed 6/4/2011 we are okay
+ * @brieff Just work!! Please
+ */
+
+// g++ FaceDetector.cc -o FaceDetector -I /usr/local/include/opencv -L /usr/local/lib -lm -lcv -lhighgui -lcvaux 
+
+#include <stdio.h>
+#include <OpenCV/OpenCV.h>
+#include <OpenCV/highgui.h>
+#include <iostream>
+using namespace std;
+
+CvHaarClassifierCascade *cascade_face;
+CvHaarClassifierCascade *cascade_eyes;
+CvHaarClassifierCascade *cascade_eye;
+CvHaarClassifierCascade *cascade_nose;
+CvHaarClassifierCascade *cascade_mouth;
+CvHaarClassifierCascade *cascade_smile;
+CvMemStorage *storage;
+
+char *windowname = "Video stream";   
+char *windowname1 = "Detection";
+char *windowname2 = "Masks";
+
+
+/** Parameters I think might be useful */
+CvRect *rightEyeRect = NULL;
+CvRect *leftEyeRect = NULL;
+CvRect *eyesRect = NULL;
+CvRect *mouthRect = NULL;
+CvRect *smileRect = NULL;
+CvRect *noseRect = NULL;
+CvRect *faceRect = NULL;
+
+CvPoint nosePoint;
+
+bool eyes_detect = false;
+bool nose_detect = false;
+
+/** Function headers */
+void detectFacialFeatures( IplImage *img, IplImage *temp_img, IplImage *mask1_img );
+void detectMouth( IplImage *img, CvRect *r );
+void detectSmile( IplImage *img, CvRect *r );
+void detectNose( IplImage *img, CvRect *r );
+void detectEyes( IplImage *img, CvRect *r );    
+void detectLeftEye( IplImage *img, CvRect *r );    
+void detectRightEye( IplImage *img, CvRect *r );    
+void DrawMasks(IplImage *mask1_img);
+
+/** Stuff for visualization */
+CvScalar smileColor = CV_RGB( 0, 255, 255 );
+CvScalar mouthColor = CV_RGB( 255, 255, 255 );
+CvScalar eyesColor = CV_RGB( 0, 0, 255 );
+CvScalar eyeColor = CV_RGB( 255, 255, 0 );
+CvScalar noseColor = CV_RGB( 0, 255, 0 );
+CvScalar faceColor = CV_RGB( 255, 0, 255 );
+
+/** 
+ * @brief Main function 
+ */
+int main(int argc, char ** argv)
+{
+	
+	int ind = 1;
+	
+	cout<<endl<<" Testing Framework ";
+	cout<<endl<<"-------------------";
+	//cout<<endl<<"Enter the movie number:";
+	//cin>>ind;
+	
+	//CvCapture *capture;
+	IplImage *frame;
+	IplImage *temp_frame;
+	IplImage *mask1_frame;
+	
+	char key;
+	char *face_filename = "haarcascade_frontalface_default.xml";
+	char *eyes_filename = "haarcascade_mcs_eyepair_big.xml";
+	char *eye_filename = "haarcascade_eye.xml";
+	char *nose_filename = "haarcascade_mcs_nose.xml";
+	char *mouth_filename = "haarcascade_mcs_mouth.xml";
+	char *smile_filename = "smileD_haarcascade.xml";
+	
+	//char moviename[50];
+	//sprintf(moviename, "movies/movie%d.mov",ind);
+	
+	/** We load the classifier */
+	cascade_face = (CvHaarClassifierCascade*) cvLoad(face_filename, 0, 0, 0);
+	cascade_eyes = (CvHaarClassifierCascade*) cvLoad(eyes_filename, 0, 0, 0);
+	cascade_eye = (CvHaarClassifierCascade*) cvLoad(eye_filename, 0, 0, 0);
+	cascade_nose = (CvHaarClassifierCascade*) cvLoad(nose_filename, 0, 0, 0);
+	cascade_mouth = (CvHaarClassifierCascade*) cvLoad(mouth_filename, 0, 0, 0);
+	cascade_smile = (CvHaarClassifierCascade*) cvLoad(smile_filename, 0, 0, 0);
+	
+	/** We setup memory buffer needed by the face detector */
+	storage = cvCreateMemStorage(0);
+	
+	/** Initialize camera */
+	//capture = cvCaptureFromCAM(0);
+	 CvCapture *capture = cvCreateCameraCapture (CV_CAP_ANY);
+	
+	/** Check that everything is fine */
+	assert(cascade_face && cascade_eyes && cascade_eye && cascade_nose && cascade_mouth && storage && capture);
+	
+	/** Create a window */
+	cvNamedWindow(windowname1, 1);
+	cvNamedWindow(windowname2, 1);   
+	cvMoveWindow(windowname2, 100, 0);
+	
+	/** Loop. Keep running until you run out of frames */
+	while(true)   
+	{
+		/** Get a frame */
+		frame = cvQueryFrame(capture);
+		
+		/** Always check you got an image */
+		if(!frame) break;
+		
+		temp_frame = cvCloneImage(frame);
+		mask1_frame = cvCloneImage(frame);
+		
+		/** Detect face a/o whatever you can detect and display video */
+		detectFacialFeatures( frame, temp_frame, mask1_frame );
+		
+		/** To quit press "q" */
+		key = cvWaitKey(10); 
+		if(key == 'q') break;  
+	}
+	
+	/** Free memory */
+	cvReleaseCapture(&capture);
+	cvDestroyWindow(windowname);
+	cvReleaseHaarClassifierCascade(&cascade_face);
+	cvReleaseHaarClassifierCascade(&cascade_eyes);
+	cvReleaseHaarClassifierCascade(&cascade_eye);
+	cvReleaseHaarClassifierCascade(&cascade_nose);
+	cvReleaseHaarClassifierCascade(&cascade_mouth);
+	cvReleaseHaarClassifierCascade(&cascade_smile);
+	cvReleaseMemStorage(&storage);
+	
+	return 0;
+}
+
+
+/** --------------------------------- 
+ * @function detectSmile
+ * @brief Detect the smile (!) 
+ * ----------------------------------
+ */
+void detectSmile(IplImage *img, CvRect *r){
+	
+	CvSeq *smile;
+	bool smile_detect = false;
+	
+	CvRect *smile_cord;
+	CvSize smileMinSize = cvSize( (int)(0.25*(r->width)), (int)(0.1*(r->height)) );
+	
+	int smileArea;
+	int maxArea = 0;  
+	
+	int windowX = r->x + 0.3*r->width;
+	int windowY = r->y + 0.6*(r->height);    
+	int windowWidth = 0.5*(r->width);
+	int windowHeight = 0.4*(r->height);
+	
+	
+	cvResetImageROI(img);
+	cvSetImageROI( img, cvRect( windowX, windowY, windowWidth, windowHeight ) ); 
+	
+	smile = cvHaarDetectObjects( img,
+								cascade_smile,
+								storage,
+								1.2, 2, 1,
+								smileMinSize );
+	
+	
+	/** We assume we are just detecting one */
+	for (int i = 0; i<(smile? smile->total: 0); i++)			    
+	{
+		smile_cord = (CvRect*)cvGetSeqElem(smile, i);
+		smileArea = smile_cord->height*smile_cord->width;
+		
+		/** Store info */
+		if(smileArea > maxArea)
+		{ maxArea = smileArea; 
+			smileRect = smile_cord;
+			smileRect->x = smileRect->x + windowX;
+			smileRect->y = smileRect->y + windowY;
+			smile_detect = true;
+		}
+	}  
+	
+	cvResetImageROI(img);
+	if( smile_detect == true)
+	{
+		cvRectangle( img,
+                    cvPoint( smileRect->x, smileRect->y),
+                    cvPoint( smileRect->x + smileRect->width, smileRect->y + smileRect->height),
+					smileColor,
+					1, 8, 0 ); 
+		printf( " ** Smile -> Pos(%d,%d) Size(%d,%d) \n", smileRect->x, smileRect->y, smileRect->width, smileRect->height );
+	} 
+	
+	
+}
+
+
+/** --------------------------------- 
+ * @function detectMouth 
+ * @brief Detect the mouth! 
+ * ----------------------------------
+ */
+void detectMouth(IplImage *img, CvRect *r){
+	
+	CvSeq *mouth;
+	bool mouth_detect = false;
+	
+	CvRect *mouth_cord;
+	CvSize mouthMinSize = cvSize( (int)(0.25*(r->width)), (int)(0.1*(r->height)) );
+	
+	int mouthArea;
+	int maxArea = 0;  
+	
+	int windowX = r->x + 0.3*r->width;
+	int windowY = r->y + 0.7*(r->height);    
+	int windowWidth = 0.5*(r->width);
+	int windowHeight = 0.3*(r->height);
+	
+	
+	cvResetImageROI(img);
+	cvSetImageROI( img, cvRect( windowX, windowY, windowWidth, windowHeight ) ); 
+	
+	mouth = cvHaarDetectObjects( img,
+								cascade_mouth,
+								storage,
+								1.2, 2, 1,
+								mouthMinSize );
+	
+	
+	/** We assume we are just detecting one */
+	for (int i = 0; i<(mouth? mouth->total: 0); i++)			    
+	{
+		mouth_cord = (CvRect*)cvGetSeqElem(mouth, i);
+		mouthArea = mouth_cord->height*mouth_cord->width;
+		
+		/** Store info */
+		if(mouthArea > maxArea)
+		{ maxArea = mouthArea; 
+			mouthRect = mouth_cord;
+			mouthRect->x = mouthRect->x + windowX;
+			mouthRect->y = mouthRect->y + windowY;
+			mouth_detect = true;
+		}
+	}  
+	
+	cvResetImageROI(img);
+	if( mouth_detect == true)
+	{
+		cvRectangle( img,
+                    cvPoint( mouthRect->x, mouthRect->y),
+                    cvPoint( mouthRect->x + mouthRect->width, mouthRect->y + mouthRect->height),
+					mouthColor,
+					1, 8, 0 ); 
+		printf( " ** Mouth -> Pos(%d,%d) Size(%d,%d) \n", mouthRect->x, mouthRect->y, mouthRect->width, mouthRect->height );
+	} 
+	
+	
+}
+
+/** 
+ * -----------------------------------------
+ * @function detectNose
+ * @brief Detect (01) nose - hopefully
+ * -----------------------------------------
+ */
+void detectNose(IplImage *img, CvRect *r){
+	CvSeq *nose;
+	nose_detect = false;
+	
+	CvRect *nose_cord;
+	CvSize noseMinSize = cvSize( (int)(0.15*(r->width)), (int)(0.15*(r->height)) );
+	
+	int noseArea;
+	int maxArea = 0;
+	// 0.3 0.3 0.4 0.5
+	int windowX = r->x + 0.25*r->width;
+	int windowY = r->y + 0.25*(r->height);    
+	int windowWidth = 0.5*(r->width);
+	int windowHeight = 0.5*(r->height);
+	
+	cvResetImageROI(img);
+	cvSetImageROI( img, cvRect( windowX, windowY, windowWidth, windowHeight ) ); 
+	
+    nose = cvHaarDetectObjects( img,
+							   cascade_nose,
+							   storage,
+							   1.2, 2, 1,
+							   noseMinSize );
+	
+    for(int i = 0; i<(nose? nose->total : 0); i++)
+	{
+		nose_cord = (CvRect*)cvGetSeqElem(nose, i);
+		noseArea = nose_cord->height*nose_cord->width;
+		
+		/** Store info */
+		if( noseArea > maxArea)
+		{ maxArea = noseArea; 
+			noseRect = nose_cord;
+			noseRect->x = noseRect->x + windowX;
+			noseRect->y = noseRect->y + windowY;
+			nosePoint = cvPoint(noseRect->x + 0.5*noseRect->width, noseRect->y+ 0.5*noseRect->height);
+			nose_detect = true;
+		}
+	}
+	
+	cvResetImageROI(img);
+}
+
+/**
+ * ---------------------------------
+ * @function detectEyes
+ * @brief Detect Eyes (both)
+ * ---------------------------------
+ */
+void detectEyes(IplImage *img, CvRect *r)
+{
+	CvSeq *eyes;
+	eyes_detect = false;
+	
+	CvRect *eyes_cord;
+	CvSize eyesMinSize = cvSize( (int)(0.05*(r->width)), (int)(0.075*(r->height)) );
+	
+	int eyesArea;
+	int maxArea = 0;  
+	
+	int windowX = r->x + 0.1*r->width;
+	int windowY = r->y + 0.1*(r->height);    
+	int windowWidth = 0.8*(r->width);
+	int windowHeight = 0.4*(r->height);
+	
+	cvResetImageROI(img);
+	cvSetImageROI( img, cvRect( windowX, windowY, windowWidth, windowHeight ) ); 
+	
+	eyes = cvHaarDetectObjects( img,
+                               cascade_eyes,
+                               storage,
+                               1.2, 2, 0,
+                               cvSize(10, 10) );
+	
+    for(int i = 0; i<(eyes? eyes->total : 0); i++)
+	{
+		eyes_cord = (CvRect*)cvGetSeqElem(eyes, i);
+		eyesArea = eyes_cord->height*eyes_cord->width;
+		
+		/** Store info */
+		if(eyesArea > maxArea)
+		{ maxArea = eyesArea; 
+			eyesRect = eyes_cord;
+			eyesRect->x = eyesRect->x + windowX;
+			eyesRect->y = eyesRect->y + windowY;
+			eyes_detect = true;
+		}	
+	}   
+	
+	cvResetImageROI(img);
+	
+}
+
+/**
+ * --------------------------------------------------
+ * @function detectLeftEye
+ * @brief Detect Left Eye (the only one to your left, unless you are a four-eye like me :)
+ * --------------------------------------------------
+ */
+void detectLeftEye(IplImage *img, CvRect *r)
+{
+	CvSeq *eye;
+	bool eye_detect = false;
+	
+	CvRect *eye_cord;
+	CvSize eyeMinSize = cvSize( (int)(0.02*(r->width)), (int)(0.02*(r->height)) );
+	
+	int EyeArea;
+	int maxArea = 0;  
+	
+	int windowX = r->x + 0.1*r->width;
+	int windowY = r->y + 0.15*(r->height);    
+	int windowWidth = 0.4*(r->width);
+	int windowHeight = 0.35*(r->height);
+	
+	cvResetImageROI(img);
+	cvSetImageROI( img, cvRect( windowX, windowY, windowWidth, windowHeight ) ); 
+	
+	eye = cvHaarDetectObjects( img,
+							  cascade_eye,
+							  storage,
+							  1.2, 2, 0,
+							  eyeMinSize );
+	
+    for(int i = 0; i<(eye? eye->total : 0); i++)
+	{
+		eye_cord = (CvRect*)cvGetSeqElem(eye, i);
+		EyeArea = eye_cord->height*eye_cord->width;
+		
+		/** Store info */
+		if(EyeArea > maxArea)
+		{ maxArea = EyeArea; 
+			leftEyeRect = eye_cord;
+			leftEyeRect->x = leftEyeRect->x + windowX;
+			leftEyeRect->y = leftEyeRect->y + windowY;
+			eye_detect = true;
+		}
+	}  
+	
+	cvResetImageROI(img);
+	if( eye_detect == true)
+	{
+		cvRectangle( img,
+                    cvPoint( leftEyeRect->x, leftEyeRect->y),
+                    cvPoint( leftEyeRect->x + leftEyeRect->width, leftEyeRect->y + leftEyeRect->height),
+					eyeColor,
+					1, 8, 0 ); 
+	} 
+}
+
+
+/**
+ * --------------------------------------------------
+ * @function detectRightEye
+ * @brief Detect Right Eye (the only one to your right, unless you are a four-eye like me :)
+ * --------------------------------------------------
+ */
+void detectRightEye(IplImage *img, CvRect *r)
+{
+	CvSeq *eye;
+	bool eye_detect = false;
+	
+	CvRect *eye_cord;
+	CvSize eyeMinSize = cvSize( (int)(0.025*(r->width)), (int)(0.025*(r->height)) );
+	
+	int EyeArea;
+	int maxArea = 0;  
+	
+	int windowX = r->x + 0.5*r->width;
+	int windowY = r->y + 0.15*(r->height);    
+	int windowWidth = 0.4*(r->width);
+	int windowHeight = 0.35*(r->height);
+	
+	cvResetImageROI(img);
+	cvSetImageROI( img, cvRect( windowX, windowY, windowWidth, windowHeight ) ); 
+	
+	eye = cvHaarDetectObjects( img,
+							  cascade_eye,
+							  storage,
+							  1.2, 2, 0,
+							  eyeMinSize );
+	
+    for(int i = 0; i<(eye? eye->total : 0); i++)
+	{
+		eye_detect++;
+		eye_cord = (CvRect*)cvGetSeqElem(eye, i);
+		
+		EyeArea = eye_cord->height*eye_cord->width;
+		
+		/** Store info */
+		if(EyeArea > maxArea)
+		{ maxArea = EyeArea; 
+			rightEyeRect = eye_cord;
+			rightEyeRect->x = rightEyeRect->x + windowX;
+			rightEyeRect->y = rightEyeRect->y + windowY;
+			eye_detect = true;
+		}
+	}  
+	
+	cvResetImageROI(img);
+	if( eye_detect == true)
+	{
+		cvRectangle( img,
+                    cvPoint( rightEyeRect->x, rightEyeRect->y),
+                    cvPoint( rightEyeRect->x + rightEyeRect->width, rightEyeRect->y + rightEyeRect->height),
+					eyeColor,
+					1, 8, 0 ); 
+	} 
+	
+}
+
+/**
+ * -------------------------------------
+ * @function detectFacialFeatures
+ * @brief Detect the face :)
+ * -------------------------------------
+ */
+void detectFacialFeatures( IplImage *img, IplImage *temp_img, IplImage *mask1_img )
+{
+    CvSeq* face;
+    bool face_detect = false;
+	
+    CvRect *face_cord;
+    CvSize faceMinSize = cvSize( (int)(0.3*(img)->width), (int)(0.3*(img)->height) );
+	
+    int faceArea;
+    int maxArea = 0;  
+	
+    int windowX = 0 + 0.2*(img)->width;
+    int windowY = 0 + 0.1*(img)->height;    
+    int windowWidth = 0.6*(img->width);
+    int windowHeight = 0.8*(img->height);
+	
+    cvResetImageROI(img);
+    cvSetImageROI( img, cvRect( windowX, windowY, windowWidth, windowHeight ) ); 
+    
+    face = cvHaarDetectObjects( img,
+							   cascade_face, 
+							   storage, 
+							   1.2, 2, 
+							   CV_HAAR_DO_CANNY_PRUNING, 
+							   faceMinSize );
+	
+	
+    for(int i = 0 ; i < ( face ? face->total : 0 ) ; i++ )
+    {        
+        face_cord = ( CvRect* )cvGetSeqElem( face, i );
+        faceArea = face_cord->height*face_cord->width;
+		
+		/** Store info */
+		if(faceArea > maxArea)
+		{ maxArea = faceArea; 
+			faceRect = face_cord;
+			faceRect->x = faceRect->x + windowX;
+			faceRect->y = faceRect->y + windowY;
+			face_detect = true;
+		}
+    }	
+	
+	cvResetImageROI(img);
+	
+	if( face_detect == true)
+	{
+		cvRectangle( temp_img,
+                    cvPoint( faceRect->x, faceRect->y),
+                    cvPoint( faceRect->x + faceRect->width, faceRect->y + faceRect->height),
+					faceColor,
+					1, 8, 0 ); 
+		
+        DrawMasks(mask1_img);
+		
+        cvResetImageROI(img); detectEyes(img,faceRect);
+        //cvResetImageROI(img); detectLeftEye(img, faceRect);
+        //cvResetImageROI(img); detectRightEye(img, faceRect);
+        cvResetImageROI(img); detectNose(img,faceRect);
+        //cvResetImageROI(img); detectSmile(img,faceRect);
+        cvResetImageROI(img); detectMouth(img,faceRect);
+		
+        /** Drawing stuff */ 
+        if( eyes_detect == true)
+		{
+			cvRectangle( temp_img,
+                        cvPoint( eyesRect->x, eyesRect->y),
+                        cvPoint( eyesRect->x + eyesRect->width, eyesRect->y + eyesRect->height),
+						eyesColor,
+						1, 8, 0 ); 
+			cvCircle( temp_img, cvPoint(eyesRect->x + 0.2*eyesRect->width, eyesRect->y+ 0.5*eyesRect->height), 5, eyesColor, -1, 8, 0);
+			cvCircle( temp_img, cvPoint(eyesRect->x + 0.8*eyesRect->width, eyesRect->y+ 0.5*eyesRect->height), 5, eyesColor, -1, 8, 0);
+		} 
+        if( nose_detect == true)
+		{
+            cvRectangle( temp_img,
+						cvPoint( noseRect->x, noseRect->y),
+						cvPoint( noseRect->x + noseRect->width, noseRect->y + noseRect->height),
+						noseColor,
+						1, 8, 0 ); 
+            cvCircle( temp_img, nosePoint, 5, noseColor, -1, 8, 0);
+		} 
+		
+	} 
+	cvShowImage(windowname1, temp_img); 
+	cvShowImage(windowname2, mask1_img); 
+}
+
+/**
+ * @function DrawMasks
+ */
+void DrawMasks(IplImage *mask1_img)
+{
+	CvPoint seed;
+	CvConnectedComp comp;
+	int dy = 2;
+	
+	/** Upper Mask */
+	cvResetImageROI(mask1_img);
+	
+	
+	if(nose_detect == true) // Used 0.5 where 1.0 is and still works fine
+    { cvSetImageROI( mask1_img, cvRect( faceRect->x, faceRect->y, faceRect->width, (nosePoint.y - faceRect->y + dy) ) ); 
+		seed = cvPoint( 0.5*(nosePoint.x - faceRect->x), (nosePoint.y - faceRect->y) );
+    }
+	else
+    { cvSetImageROI( mask1_img, cvRect( faceRect->x, faceRect->y, faceRect->width, 0.5*faceRect->height + dy ) ); 
+		seed = cvPoint( 0.5*faceRect->width, 0.5*faceRect->height  );
+    }
+	
+	// 8 and 12 were okay
+	cvFloodFill( mask1_img, seed, CV_RGB(255,0,0), CV_RGB( 8, 8, 8), CV_RGB( 12, 12, 12 ), &comp,4, NULL ); 
+	
+	/** Lower Mask */
+	cvResetImageROI(mask1_img);
+	
+	if(nose_detect == true)
+    { cvSetImageROI( mask1_img, cvRect( faceRect->x, nosePoint.y + dy, faceRect->width, (faceRect->y + faceRect->height - nosePoint.y - dy ) ) ); 
+		seed = cvPoint( 0.5*(nosePoint.x - faceRect->x), dy +1 );
+    }
+	else
+    { cvSetImageROI( mask1_img, cvRect( faceRect->x, faceRect->y + 0.5*faceRect->height + dy, faceRect->width, 0.5*faceRect->height - dy ) ); 
+		seed = cvPoint( 0.5*faceRect->width, dy +1 );
+    }
+	
+	cvFloodFill( mask1_img, seed, CV_RGB(255,0,255), CV_RGB( 8, 8, 8), CV_RGB( 12, 12, 12 ), &comp,4, NULL ); 
+	
+	cvResetImageROI(mask1_img);
+	
+}

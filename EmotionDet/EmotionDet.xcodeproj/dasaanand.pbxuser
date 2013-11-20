@@ -1,0 +1,290 @@
+// !$*UTF8*$!
+{
+	08FB7793FE84155DC02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 3A746CEA14409B5500EC33D0 /* FaceTracker */;
+		activeTarget = 4D7DBE560C04A8FF00D8835D /* EmotionDet */;
+		addToTargets = (
+			4D7DBE560C04A8FF00D8835D /* EmotionDet */,
+		);
+		codeSenseManager = 3A746CF614409B7800EC33D0 /* Code sense */;
+		executables = (
+			3A746CEA14409B5500EC33D0 /* FaceTracker */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					677,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					752,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					749,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 345023136;
+			PBXWorkspaceStateSaveDate = 345023136;
+		};
+		perUserProjectItems = {
+			3A39520D1490A2D7003E62E8 /* PBXTextBookmark */ = 3A39520D1490A2D7003E62E8 /* PBXTextBookmark */;
+			3A6E4F511448907C00325156 /* PBXTextBookmark */ = 3A6E4F511448907C00325156 /* PBXTextBookmark */;
+			3A6E4F541448907C00325156 /* PBXTextBookmark */ = 3A6E4F541448907C00325156 /* PBXTextBookmark */;
+			3AA53FC8146E847E007663A7 /* PBXTextBookmark */ = 3AA53FC8146E847E007663A7 /* PBXTextBookmark */;
+			3AA53FDD146E85D9007663A7 /* PBXTextBookmark */ = 3AA53FDD146E85D9007663A7 /* PBXTextBookmark */;
+			3AA53FF5146E87E2007663A7 /* PBXTextBookmark */ = 3AA53FF5146E87E2007663A7 /* PBXTextBookmark */;
+			3AA54084146EA6C1007663A7 /* PBXTextBookmark */ = 3AA54084146EA6C1007663A7 /* PBXTextBookmark */;
+			3AC8DFD9147283BA00EDAA1A /* PBXTextBookmark */ = 3AC8DFD9147283BA00EDAA1A /* PBXTextBookmark */;
+			3AD0224B1470981E0044AC6E /* PBXTextBookmark */ = 3AD0224B1470981E0044AC6E /* PBXTextBookmark */;
+		};
+		sourceControlManager = 3A746CF514409B7800EC33D0 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	08FB7796FE84155DC02AAC07 /* EmotionDet.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {915, 1963}}";
+			sepNavSelRange = "{4808, 0}";
+			sepNavVisRange = "{3971, 2567}";
+			sepNavWindowFrame = "{{19, 0}, {626, 778}}";
+		};
+	};
+	3A2E1A70144818C400834BF7 /* haarcascade_eye_new.xml */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {915, 198783}}";
+			sepNavSelRange = "{1215, 0}";
+			sepNavVisRange = "{597, 1666}";
+		};
+	};
+	3A2E1A72144818C400834BF7 /* haarcascade_frontalface_alt_tree.xml */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {915, 1.35282e+06}}";
+			sepNavSelRange = "{21, 0}";
+			sepNavVisRange = "{0, 1674}";
+		};
+	};
+	3A2E1A74144818C400834BF7 /* haarcascade_mcs_righteye.xml */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {915, 543465}}";
+			sepNavSelRange = "{21, 0}";
+			sepNavVisRange = "{0, 1535}";
+		};
+	};
+	3A2E1A75144818C400834BF7 /* haarcascade_mouth.xml */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {915, 282269}}";
+			sepNavSelRange = "{733517, 0}";
+			sepNavVisRange = "{0, 1592}";
+		};
+	};
+	3A39520D1490A2D7003E62E8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* EmotionDet.cpp */;
+		name = "EmotionDet.cpp: 110";
+		rLen = 0;
+		rLoc = 4808;
+		rType = 0;
+		vrLen = 2567;
+		vrLoc = 3971;
+	};
+	3A6E4F511448907C00325156 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A2E1A74144818C400834BF7 /* haarcascade_mcs_righteye.xml */;
+		name = "haarcascade_mcs_righteye.xml: 1";
+		rLen = 0;
+		rLoc = 21;
+		rType = 0;
+		vrLen = 1535;
+		vrLoc = 0;
+	};
+	3A6E4F541448907C00325156 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A2E1A70144818C400834BF7 /* haarcascade_eye_new.xml */;
+		name = "haarcascade_eye_new.xml: 41";
+		rLen = 0;
+		rLoc = 1215;
+		rType = 0;
+		vrLen = 1666;
+		vrLoc = 597;
+	};
+	3A746CEA14409B5500EC33D0 /* FaceTracker */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = FaceTracker;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	3A746CF514409B7800EC33D0 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	3A746CF614409B7800EC33D0 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	3AA53EF0146E6841007663A7 /* haarcascade_smile.xml */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {915, 95745}}";
+			sepNavSelRange = "{177, 0}";
+			sepNavVisRange = "{0, 1536}";
+		};
+	};
+	3AA53FC8146E847E007663A7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AA53FC9146E847E007663A7 /* HIView.h */;
+		name = "HIView.h: 4296";
+		rLen = 29;
+		rLoc = 130880;
+		rType = 0;
+		vrLen = 1169;
+		vrLoc = 130155;
+	};
+	3AA53FC9146E847E007663A7 /* HIView.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = HIView.h;
+		path = /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/Headers/HIView.h;
+		sourceTree = "<absolute>";
+	};
+	3AA53FDD146E85D9007663A7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A2E1A72144818C400834BF7 /* haarcascade_frontalface_alt_tree.xml */;
+		name = "haarcascade_frontalface_alt_tree.xml: 1";
+		rLen = 0;
+		rLoc = 21;
+		rType = 0;
+		vrLen = 1674;
+		vrLoc = 0;
+	};
+	3AA53FF5146E87E2007663A7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A2E1A75144818C400834BF7 /* haarcascade_mouth.xml */;
+		name = "haarcascade_mouth.xml: 21781";
+		rLen = 0;
+		rLoc = 733517;
+		rType = 0;
+		vrLen = 1592;
+		vrLoc = 0;
+	};
+	3AA54084146EA6C1007663A7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AA53EF0146E6841007663A7 /* haarcascade_smile.xml */;
+		name = "haarcascade_smile.xml: 10";
+		rLen = 0;
+		rLoc = 177;
+		rType = 0;
+		vrLen = 1536;
+		vrLoc = 0;
+	};
+	3AC8DFD9147283BA00EDAA1A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* EmotionDet.cpp */;
+		name = "EmotionDet.cpp: 110";
+		rLen = 0;
+		rLoc = 4808;
+		rType = 0;
+		vrLen = 2567;
+		vrLoc = 3971;
+	};
+	3AD0224B1470981E0044AC6E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AD0224C1470981E0044AC6E /* stdlib.h */;
+		name = "stdlib.h: 224";
+		rLen = 20;
+		rLoc = 7466;
+		rType = 0;
+		vrLen = 1972;
+		vrLoc = 6627;
+	};
+	3AD0224C1470981E0044AC6E /* stdlib.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = stdlib.h;
+		path = /Developer/SDKs/MacOSX10.6.sdk/usr/include/stdlib.h;
+		sourceTree = "<absolute>";
+	};
+	4D7DBE560C04A8FF00D8835D /* EmotionDet */ = {
+		activeExec = 0;
+		executables = (
+			3A746CEA14409B5500EC33D0 /* FaceTracker */,
+		);
+	};
+}

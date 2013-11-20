@@ -1,0 +1,361 @@
+TEmotionDet
+v7
+r0
+t345023157.172128
+cCheck dependencies
+cProcessInfoPlistFile /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Info.plist EmotionDet-Info.plist
+cCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_eye_new.xml haarcascade_eye_new.xml
+cCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_frontalface_alt_tree.xml haarcascade_frontalface_alt_tree.xml
+cCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_mcs_righteye.xml haarcascade_mcs_righteye.xml
+cCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_mouth.xml haarcascade_mouth.xml
+cCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_smile.xml haarcascade_smile.xml
+cCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_anger.xml haarcascade_anger.xml
+cCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_disgust.xml haarcascade_disgust.xml
+cCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_fear.xml haarcascade_fear.xml
+cCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_mcs_mouth.xml haarcascade_mcs_mouth.xml
+cCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_mcs_nose.xml haarcascade_mcs_nose.xml
+cCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_sad.xml haarcascade_sad.xml
+cCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_surprise.xml haarcascade_surprise.xml
+cProcessPCH++ /var/folders/9t/6487g5c956s639s2ymwg_xx80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Carbon-bpofwsvohpvwvzbjtddfbczkdfgj/Carbon.h.gch /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h normal i386 c++ com.apple.compilers.gcc.4_2
+cCompileC build/EmotionDet.build/Debug/EmotionDet.build/Objects-normal/i386/EmotionDet.o /Users/dasaanand/Projects/openCV/EmotionDet/EmotionDet.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+cLd /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/MacOS/EmotionDet normal i386
+cTouch /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app
+
+N/Developer/SDKs/MacOSX10.6.sdk
+c000000004BF4701900000000000000EE
+t1274310681
+s238
+
+N/Developer/SDKs/MacOSX10.6.sdk/Library/Frameworks/OpenCV.framework/Headers/OpenCV.h
+c00000000496B6EAF0000000000000217
+t1231777455
+s535
+
+N/Developer/SDKs/MacOSX10.6.sdk/Library/Frameworks/OpenCV.framework/OpenCV
+c00000000496B6F6E0000000000646154
+t1231777646
+s6578516
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h
+c000000004B4834EA00000000000005FF
+t1263023338
+s1535
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/EmotionDet.cpp
+c000000004EC24B550000000000001999
+t1321356117
+s6553
+i<OpenCV/OpenCV.h>
+i<cassert>
+i<iostream>
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app
+t1323330357
+s102
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Info.plist
+t1323330342
+s615
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/MacOS/EmotionDet
+t1323330357
+s41740
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/PkgInfo
+t1323330342
+s8
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources/haarcascade_anger.xml
+t1323330343
+s242830
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources/haarcascade_disgust.xml
+t1323330343
+s242832
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources/haarcascade_eye_new.xml
+t1323330343
+s519610
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources/haarcascade_fear.xml
+t1323330343
+s242829
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources/haarcascade_frontalface_alt_tree.xml
+t1323330343
+s3746038
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources/haarcascade_mcs_mouth.xml
+t1323330343
+s719806
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources/haarcascade_mcs_nose.xml
+t1323330343
+s1585210
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources/haarcascade_mcs_righteye.xml
+t1323330343
+s1379348
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources/haarcascade_mouth.xml
+t1323330343
+s737970
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources/haarcascade_sad.xml
+t1323330343
+s242828
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources/haarcascade_smile.xml
+t1323330343
+s242830
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources/haarcascade_surprise.xml
+t1323330343
+s242832
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/build/EmotionDet.build/Debug/EmotionDet.build/Objects-normal/i386/EmotionDet.LinkFileList
+c000000004EE06B26000000000000007B
+t1323330342
+s123
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/build/EmotionDet.build/Debug/EmotionDet.build/Objects-normal/i386/EmotionDet.o
+t1323330355
+s84460
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_anger.xml
+c000000004EC0525D000000000003B48E
+t1321226845
+s242830
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_disgust.xml
+c000000004EC0525D000000000003B490
+t1321226845
+s242832
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_eye_new.xml
+c000000004E973E1E000000000007EDBA
+t1318534686
+s519610
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_fear.xml
+c000000004EC0525D000000000003B48D
+t1321226845
+s242829
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_frontalface_alt_tree.xml
+c000000004E97EC4000000000003928F6
+t1318579264
+s3746038
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_mcs_mouth.xml
+c000000004E6E534F00000000000AFBBE
+t1315853135
+s719806
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_mcs_nose.xml
+c000000004E6E534F000000000018303A
+t1315853135
+s1585210
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_mcs_righteye.xml
+c000000004E97ECA20000000000150C14
+t1318579362
+s1379348
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_mouth.xml
+c000000004EC0467D00000000000B42B2
+t1321223805
+s737970
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_sad.xml
+c000000004EC0525D000000000003B48C
+t1321226845
+s242828
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_smile.xml
+c000000004EC05258000000000003B48E
+t1321226840
+s242830
+
+N/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_surprise.xml
+c000000004EC0525D000000000003B490
+t1321226845
+s242832
+
+N/var/folders/9t/6487g5c956s639s2ymwg_xx80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Carbon-bpofwsvohpvwvzbjtddfbczkdfgj/Carbon.h.gch
+t1323330353
+s53704432
+
+NEmotionDet-Info.plist
+c000000004E906B6C000000000000026F
+t1318087532
+s623
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies345023142#345023142#0(0"0(0#1#0"17198325504#0"0#
+
+CCompileC build/EmotionDet.build/Debug/EmotionDet.build/Objects-normal/i386/EmotionDet.o /Users/dasaanand/Projects/openCV/EmotionDet/EmotionDet.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s345023153.969027
+e345023155.696252
+r1
+xCompileC
+xbuild/EmotionDet.build/Debug/EmotionDet.build/Objects-normal/i386/EmotionDet.o
+x/Users/dasaanand/Projects/openCV/EmotionDet/EmotionDet.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+o/Users/dasaanand/Projects/openCV/EmotionDet/EmotionDet.cpp: In function 'int main(int, char* const*)':
+o/Users/dasaanand/Projects/openCV/EmotionDet/EmotionDet.cpp:98: warning: unused variable 'smile'
+lSLF07#2@66"Compile /Users/dasaanand/Projects/openCV/EmotionDet/EmotionDet.cpp345023153#345023155#0(199"/Users/dasaanand/Projects/openCV/EmotionDet/EmotionDet.cpp: In function 'int main(int, char* const*)':/Users/dasaanand/Projects/openCV/EmotionDet/EmotionDet.cpp:98: warning: unused variable 'smile'1(22@23"Unused variable 'smile'345023155#103#96#0(6@58"/Users/dasaanand/Projects/openCV/EmotionDet/EmotionDet.cpp343048917#98#0#98#0#19"unused variable '*'0(0#0#58"/Users/dasaanand/Projects/openCV/EmotionDet/EmotionDet.cpp4461616736#1406"    cd /Users/dasaanand/Projects/openCV/EmotionDet    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/dasaanand/Projects/openCV/EmotionDet/build/EmotionDet.build/Debug/EmotionDet.build/EmotionDet.hmap -F/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug -F/Users/dasaanand/Projects/openCV/EmotionDet/../opencv -F/Users/dasaanand/Projects/openCV/EmotionDet/../../.. -F/Users/dasaanand/Projects/openCV/EmotionDet/.. -F/Users/dasaanand/Projects/openCV/EmotionDet/.. -F/Users/dasaanand/Projects/openCV/EmotionDet/.. -I/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/include -I/Users/dasaanand/Projects/openCV/EmotionDet/build/EmotionDet.build/Debug/EmotionDet.build/DerivedSources/i386 -I/Users/dasaanand/Projects/openCV/EmotionDet/build/EmotionDet.build/Debug/EmotionDet.build/DerivedSources -include /var/folders/9t/6487g5c956s639s2ymwg_xx80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Carbon-bpofwsvohpvwvzbjtddfbczkdfgj/Carbon.h -c /Users/dasaanand/Projects/openCV/EmotionDet/EmotionDet.cpp -o /Users/dasaanand/Projects/openCV/EmotionDet/build/EmotionDet.build/Debug/EmotionDet.build/Objects-normal/i386/EmotionDet.o0#
+
+CCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_anger.xml haarcascade_anger.xml
+s345023142.921009
+e345023143.361000
+r1
+xCpResource
+xbuild/Debug/EmotionDet.app/Contents/Resources/haarcascade_anger.xml
+xhaarcascade_anger.xml
+lSLF07#2@26"Copy haarcascade_anger.xml345023142#345023143#0(0"0(0#0#65"/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_anger.xml4461616736#355"    cd /Users/dasaanand/Projects/openCV/EmotionDet    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_anger.xml /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources0#
+
+CCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_disgust.xml haarcascade_disgust.xml
+s345023142.922742
+e345023143.450859
+r1
+xCpResource
+xbuild/Debug/EmotionDet.app/Contents/Resources/haarcascade_disgust.xml
+xhaarcascade_disgust.xml
+lSLF07#2@28"Copy haarcascade_disgust.xml345023142#345023143#0(0"0(0#0#67"/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_disgust.xml4461616736#357"    cd /Users/dasaanand/Projects/openCV/EmotionDet    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_disgust.xml /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources0#
+
+CCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_eye_new.xml haarcascade_eye_new.xml
+s345023142.831536
+e345023144.272774
+r1
+xCpResource
+xbuild/Debug/EmotionDet.app/Contents/Resources/haarcascade_eye_new.xml
+xhaarcascade_eye_new.xml
+lSLF07#2@28"Copy haarcascade_eye_new.xml345023142#345023144#0(0"0(0#0#67"/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_eye_new.xml4461616736#357"    cd /Users/dasaanand/Projects/openCV/EmotionDet    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_eye_new.xml /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources0#
+
+CCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_fear.xml haarcascade_fear.xml
+s345023142.923419
+e345023143.764685
+r1
+xCpResource
+xbuild/Debug/EmotionDet.app/Contents/Resources/haarcascade_fear.xml
+xhaarcascade_fear.xml
+lSLF07#2@25"Copy haarcascade_fear.xml345023142#345023143#0(0"0(0#0#64"/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_fear.xml4461616736#354"    cd /Users/dasaanand/Projects/openCV/EmotionDet    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_fear.xml /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources0#
+
+CCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_frontalface_alt_tree.xml haarcascade_frontalface_alt_tree.xml
+s345023142.905489
+e345023143.996390
+r1
+xCpResource
+xbuild/Debug/EmotionDet.app/Contents/Resources/haarcascade_frontalface_alt_tree.xml
+xhaarcascade_frontalface_alt_tree.xml
+lSLF07#2@41"Copy haarcascade_frontalface_alt_tree.xml345023142#345023143#0(0"0(0#0#80"/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_frontalface_alt_tree.xml4461616736#370"    cd /Users/dasaanand/Projects/openCV/EmotionDet    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_frontalface_alt_tree.xml /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources0#
+
+CCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_mcs_mouth.xml haarcascade_mcs_mouth.xml
+s345023142.924341
+e345023144.281192
+r1
+xCpResource
+xbuild/Debug/EmotionDet.app/Contents/Resources/haarcascade_mcs_mouth.xml
+xhaarcascade_mcs_mouth.xml
+lSLF07#2@30"Copy haarcascade_mcs_mouth.xml345023142#345023144#0(0"0(0#0#69"/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_mcs_mouth.xml4461616736#359"    cd /Users/dasaanand/Projects/openCV/EmotionDet    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_mcs_mouth.xml /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources0#
+
+CCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_mcs_nose.xml haarcascade_mcs_nose.xml
+s345023142.925134
+e345023143.883680
+r1
+xCpResource
+xbuild/Debug/EmotionDet.app/Contents/Resources/haarcascade_mcs_nose.xml
+xhaarcascade_mcs_nose.xml
+lSLF07#2@29"Copy haarcascade_mcs_nose.xml345023142#345023143#0(0"0(0#0#68"/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_mcs_nose.xml4461616736#358"    cd /Users/dasaanand/Projects/openCV/EmotionDet    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_mcs_nose.xml /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources0#
+
+CCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_mcs_righteye.xml haarcascade_mcs_righteye.xml
+s345023142.907261
+e345023143.909729
+r1
+xCpResource
+xbuild/Debug/EmotionDet.app/Contents/Resources/haarcascade_mcs_righteye.xml
+xhaarcascade_mcs_righteye.xml
+lSLF07#2@33"Copy haarcascade_mcs_righteye.xml345023142#345023143#0(0"0(0#0#72"/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_mcs_righteye.xml4461616736#362"    cd /Users/dasaanand/Projects/openCV/EmotionDet    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_mcs_righteye.xml /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources0#
+
+CCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_mouth.xml haarcascade_mouth.xml
+s345023142.908950
+e345023144.281431
+r1
+xCpResource
+xbuild/Debug/EmotionDet.app/Contents/Resources/haarcascade_mouth.xml
+xhaarcascade_mouth.xml
+lSLF07#2@26"Copy haarcascade_mouth.xml345023142#345023144#0(0"0(0#0#65"/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_mouth.xml4461616736#355"    cd /Users/dasaanand/Projects/openCV/EmotionDet    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_mouth.xml /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources0#
+
+CCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_sad.xml haarcascade_sad.xml
+s345023143.361109
+e345023144.262929
+r1
+xCpResource
+xbuild/Debug/EmotionDet.app/Contents/Resources/haarcascade_sad.xml
+xhaarcascade_sad.xml
+lSLF07#2@24"Copy haarcascade_sad.xml345023143#345023144#0(0"0(0#0#63"/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_sad.xml4461616736#353"    cd /Users/dasaanand/Projects/openCV/EmotionDet    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_sad.xml /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources0#
+
+CCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_smile.xml haarcascade_smile.xml
+s345023142.920162
+e345023143.852830
+r1
+xCpResource
+xbuild/Debug/EmotionDet.app/Contents/Resources/haarcascade_smile.xml
+xhaarcascade_smile.xml
+lSLF07#2@26"Copy haarcascade_smile.xml345023142#345023143#0(0"0(0#0#65"/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_smile.xml4461616736#355"    cd /Users/dasaanand/Projects/openCV/EmotionDet    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_smile.xml /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources0#
+
+CCpResource build/Debug/EmotionDet.app/Contents/Resources/haarcascade_surprise.xml haarcascade_surprise.xml
+s345023143.451013
+e345023144.267574
+r1
+xCpResource
+xbuild/Debug/EmotionDet.app/Contents/Resources/haarcascade_surprise.xml
+xhaarcascade_surprise.xml
+lSLF07#2@29"Copy haarcascade_surprise.xml345023143#345023144#0(0"0(0#0#68"/Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_surprise.xml4461616736#358"    cd /Users/dasaanand/Projects/openCV/EmotionDet    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/dasaanand/Projects/openCV/EmotionDet/haarcascade_surprise.xml /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Resources0#
+
+CLd /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/MacOS/EmotionDet normal i386
+s345023155.696379
+e345023157.149069
+r1
+xLd
+x/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/MacOS/EmotionDet
+xnormal
+xi386
+old: warning: directory '/Users/dasaanand/Projects/openCV/EmotionDet/../opencv' following -F not found
+lSLF07#2@101"Link /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/MacOS/EmotionDet345023155#345023157#0(102"ld: warning: directory '/Users/dasaanand/Projects/openCV/EmotionDet/../opencv' following -F not found1(22@88"Directory '/Users/dasaanand/Projects/openCV/EmotionDet/../opencv' following -F not found345023157#0#102#0(6@0"345023157#0#0#0#0#0"0(0#0#0"17198372608#855"    cd /Users/dasaanand/Projects/openCV/EmotionDet    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/g++-4.2 -arch i386 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug -F/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug -F/Users/dasaanand/Projects/openCV/EmotionDet/../opencv -F/Users/dasaanand/Projects/openCV/EmotionDet/../../.. -F/Users/dasaanand/Projects/openCV/EmotionDet/.. -F/Users/dasaanand/Projects/openCV/EmotionDet/.. -F/Users/dasaanand/Projects/openCV/EmotionDet/.. -filelist /Users/dasaanand/Projects/openCV/EmotionDet/build/EmotionDet.build/Debug/EmotionDet.build/Objects-normal/i386/EmotionDet.LinkFileList -mmacosx-version-min=10.6 -framework Carbon -framework OpenCV -o /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/MacOS/EmotionDet0#
+
+CProcessInfoPlistFile /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Info.plist EmotionDet-Info.plist
+s345023142.753135
+e345023142.831418
+r1
+xProcessInfoPlistFile
+x/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Info.plist
+xEmotionDet-Info.plist
+lSLF07#2@29"Process EmotionDet-Info.plist345023142#345023142#0(0"0(0#0#65"/Users/dasaanand/Projects/openCV/EmotionDet/EmotionDet-Info.plist17198242304#334"    cd /Users/dasaanand/Projects/openCV/EmotionDet    builtin-infoPlistUtility EmotionDet-Info.plist -genpkginfo /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app/Contents/Info.plist0#
+
+CProcessPCH++ /var/folders/9t/6487g5c956s639s2ymwg_xx80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Carbon-bpofwsvohpvwvzbjtddfbczkdfgj/Carbon.h.gch /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h normal i386 c++ com.apple.compilers.gcc.4_2
+s345023144.281709
+e345023153.968843
+r1
+xProcessPCH++
+x/var/folders/9t/6487g5c956s639s2ymwg_xx80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Carbon-bpofwsvohpvwvzbjtddfbczkdfgj/Carbon.h.gch
+x/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@101"Precompile /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h345023144#345023153#0(0"0(0#0#90"/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h4461616736#1317"    cd /Users/dasaanand/Projects/openCV/EmotionDet    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++-header -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/dasaanand/Projects/openCV/EmotionDet/build/EmotionDet.build/Debug/EmotionDet.build/EmotionDet.hmap -F/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug -F/Users/dasaanand/Projects/openCV/EmotionDet/../opencv -F/Users/dasaanand/Projects/openCV/EmotionDet/../../.. -F/Users/dasaanand/Projects/openCV/EmotionDet/.. -F/Users/dasaanand/Projects/openCV/EmotionDet/.. -F/Users/dasaanand/Projects/openCV/EmotionDet/.. -I/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/include -I/Users/dasaanand/Projects/openCV/EmotionDet/build/EmotionDet.build/Debug/EmotionDet.build/DerivedSources/i386 -I/Users/dasaanand/Projects/openCV/EmotionDet/build/EmotionDet.build/Debug/EmotionDet.build/DerivedSources -c /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h -o /var/folders/9t/6487g5c956s639s2ymwg_xx80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Carbon-bpofwsvohpvwvzbjtddfbczkdfgj/Carbon.h.gch0#
+
+CTouch /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app
+s345023157.149158
+e345023157.171944
+r1
+xTouch
+x/Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app
+lSLF07#2@76"Touch /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app345023157#345023157#0(0"0(0#0#0"4461616736#144"    cd /Users/dasaanand/Projects/openCV/EmotionDet    /usr/bin/touch -c /Users/dasaanand/Projects/openCV/EmotionDet/build/Debug/EmotionDet.app0#
+
